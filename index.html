@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Next Event</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="top-bar">
+      <div>
+        <p id="kicker" class="kicker">SimplyLog Mini App</p>
+        <h1 id="title">Next Event</h1>
+      </div>
+      <div class="top-actions">
+        <button id="btn-refresh" class="btn btn-ghost" type="button">Refresh</button>
+        <button id="btn-prev" class="btn btn-ghost" type="button">Prev</button>
+        <button id="btn-next" class="btn btn-primary" type="button">Next</button>
+      </div>
+    </header>
+
+    <section class="status-strip">
+      <div>
+        <span id="event-position">0 / 0</span>
+        <span id="event-count" class="muted"></span>
+      </div>
+      <div id="language-chip" class="chip">LTR</div>
+    </section>
+
+    <section id="error-box" class="error-box hidden"></section>
+
+    <main class="grid">
+      <section class="card card-main">
+        <div class="card-header">
+          <h2 id="event-heading">Event</h2>
+          <div class="row-actions">
+            <a id="open-event-link" class="btn btn-link" target="_blank" rel="noopener noreferrer" href="#">Open In App</a>
+            <button id="btn-create-report" class="btn btn-secondary" type="button">Create FullEvent Report</button>
+            <button id="btn-check-report" class="btn btn-ghost" type="button">Check Report Status</button>
+          </div>
+        </div>
+        <div id="event-summary" class="summary-grid"></div>
+        <h3 class="section-title">Description</h3>
+        <p id="event-description" class="description"></p>
+      </section>
+
+      <section class="card">
+        <h2 id="actions-heading">Actions</h2>
+        <ul id="actions-list" class="stack-list"></ul>
+      </section>
+
+      <section class="card">
+        <h2 id="attachments-heading">Attachments</h2>
+        <ul id="attachments-list" class="stack-list"></ul>
+      </section>
+
+      <section class="card card-wide">
+        <h2 id="items-heading">Items</h2>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>SKU</th>
+                <th>Description</th>
+                <th>Qty</th>
+                <th>Warehouse</th>
+                <th>Updated</th>
+              </tr>
+            </thead>
+            <tbody id="items-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card card-wide">
+        <h2 id="report-heading">Report</h2>
+        <p id="report-status" class="muted">No report request yet.</p>
+        <a id="report-link" class="btn btn-link hidden" target="_blank" rel="noopener noreferrer" href="#">Open Generated Report</a>
+        <p class="muted">API command:</p>
+        <pre id="report-command" class="pre"></pre>
+      </section>
+
+      <section class="card card-wide">
+        <h2 id="raw-heading">Raw Event</h2>
+        <pre id="raw-json" class="pre"></pre>
+      </section>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/xstate@4.38.3/dist/xstate.web.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
